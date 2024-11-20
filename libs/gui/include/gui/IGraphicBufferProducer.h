@@ -688,6 +688,10 @@ public:
 #if COM_ANDROID_GRAPHICS_LIBGUI_FLAGS(BQ_EXTENDEDALLOCATE)
     virtual status_t setAdditionalOptions(const std::vector<gui::AdditionalOptions>& options);
 #endif
+    // MIUI ADD:
+    // Adjust the maximum number of buffers that can be dequeued by the producer
+    // at one time by setMaxDequeuedBufferCount.
+    virtual status_t adjustMaxDequeuedBufferCount(int) { return INVALID_OPERATION; }
 
     struct RequestBufferOutput : public Flattenable<RequestBufferOutput> {
         RequestBufferOutput() = default;
